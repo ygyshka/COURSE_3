@@ -19,19 +19,39 @@ class Operation:
     #            f'{self.from_get} {self.where_get}' \
     #            f'{self.sum_money} {self.currency}'
     def __init__(self, dict_operation):
+        """
+        Инициализация экземпляра класса
+        :param dict_operation:
+        """
         self.dict_operation = dict_operation if dict_operation else {}
 
     def __repr__(self):
+        """
+        Представление экземпляра класса
+        :return:
+        """
         return f'Operation: {self.dict_operation}'
 
     def get_data(self):
+        """
+        Получение даты операции по формату условия
+        :return:
+        """
         date = datetime.strptime(self.dict_operation["date"], "%Y-%m-%dT%H:%M:%S.%f").strftime("%d.%m.%Y")
         return date
 
     def get_description(self):
+        """
+        Получение описания операции
+        :return:
+        """
         return self.dict_operation['description']
 
     def mean_description_from(self):
+        """
+        Получение и кодировка исходящего пункта операции 
+        :return: 
+        """""
         if 'from' in self.dict_operation:
             title_from = self.dict_operation['from']
             digit_str = []
@@ -57,6 +77,10 @@ class Operation:
             return ""
 
     def mean_description_to(self):
+        """
+        Получение и кодировка пункта куда совершается операция
+        :return:
+        """
         way_disc_to = self.dict_operation.copy()['to']
         title = []
         sum_digit_in_str = sum(1 for i in way_disc_to if i.isdigit())
@@ -77,5 +101,9 @@ class Operation:
             return ""
 
     def get_amount_operation(self):
+        """
+        Получение информации о сумме операции и валюте операции
+        :return:
+        """
         return f'{self.dict_operation["operationAmount"]["amount"]}' \
                f' {self.dict_operation["operationAmount"]["currency"]["name"]}'
