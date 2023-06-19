@@ -2,22 +2,7 @@ from datetime import datetime
 
 
 class Operation:
-    # def __init__(self, date_run=str, review=str, from_get=str, where_get=str, sum_money=str, currency=str):
-    #     pass
-    # def __init__(self, date_run, review, from_get=None, where_get=None, sum_money=None, currency=None):
-    #
-    #     self.date_run = date_run
-    #     self.review = review
-    #     self.from_get = from_get
-    #     self.where_get = where_get
-    #     self.sum_money = sum_money
-    #     self.currency = currency
-    #
-    # def __repr__(self):
-    #
-    #     return f'{self.date_run} {self.review}' \
-    #            f'{self.from_get} {self.where_get}' \
-    #            f'{self.sum_money} {self.currency}'
+
     def __init__(self, dict_operation):
         """
         Инициализация экземпляра класса
